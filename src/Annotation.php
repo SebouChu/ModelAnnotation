@@ -12,7 +12,7 @@ class Annotation {
         foreach (glob("{$app->path}/*.php") + glob("{$app->path}/**/*.php") as $file) {
             $filename = basename($file);
             $name = substr($filename, 0, strlen($filename)-4);
-            $possible_class_name = Str::studly(str_singular($table));
+            $possible_class_name = Str::studly(Str::singular($table));
 
             if ($name == $possible_class_name) {
                 Log::debug('File match with table: ' . $name);

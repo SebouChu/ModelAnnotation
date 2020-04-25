@@ -1,6 +1,6 @@
 <?php
 
-namespace qsun\ModelAnnotation;
+namespace sebouchu\ModelAnnotation;
 use AnnotatingClass;
 
 use DB;

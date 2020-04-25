@@ -1,17 +1,18 @@
 <?php
 
-namespace qsun\ModelAnnotation;
+namespace sebouchu\ModelAnnotation;
 
 use Log;
 use ReflectionClass;
 use DB;
+use Illuminate\Support\Str;
 
 class Annotation {
     public static function annotateTable($app, $table) {
         foreach (glob("{$app->path}/*.php") + glob("{$app->path}/**/*.php") as $file) {
             $filename = basename($file);
             $name = substr($filename, 0, strlen($filename)-4);
-            $possible_class_name = studly_case(str_singular($table));
+            $possible_class_name = Str::studly(str_singular($table));
 
             if ($name == $possible_class_name) {
                 Log::debug('File match with table: ' . $name);
